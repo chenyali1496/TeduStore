@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<!-- namespace接口文件在哪里 -->
+<mapper namespace="cn.tedu.store.mapper.CartMapper">
+
+<!--插入数据 -->
+<!-- Integer insert(Cart cart); -->
+<insert id="insert" parameterType="cn.tedu.store.entity.Cart"
+useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO
+		t_cart(
+		uid,product_id,product_num,
+		created_time,
+		created_user,
+		modified_time,
+		modified_user
+		)VALUES(
+	#{uid},
+	#{productId},
+	#{productNum},
+	#{createdTime},
+		#{createdUser},
+		#{modifiedTime},
+		#{modifiedUser}
+	)
+</insert>
+
+<!-- 查询 -->
+<!-- Cart findCartByUidAndProductId(
+			@Param("uid") Integer uid,
+			@Param("productId") String product); -->
+<select id="findCartByUidAndProductId" resultType="cn.tedu.store.entity.Cart">
+SELECT
+	id,product_num AS productNum
+FROM
+	t_cart
+WHERE
+	product_id=#{productId}  AND uid=#{uid}
+</select>
+
+
+<!-- 修改数量 -->
+<!-- Integer updateProductNum(
+			@Param("id") Integer id,
+			@Param("productNum") Integer productNum); -->
+<update id="updateProductNum">
+	UPDATE 
+		t_cart
+	SET
+		product_num=#{productNum}
+	WHERE
+		id=#{id}
+</update>
+
+<!--  -->
+<!-- List<CartVO>	getList(Integer uid); -->
+<select id="getList" resultType="cn.tedu.store.vo.CartVO">
+SELECT
+  t_cart.id AS cartId,
+  t_cart.uid,
+  t_cart.product_id AS productId,
+  t_cart.product_num AS productNum,
+  t_product.title AS productTitle,
+  t_product.image AS productImage,
+  t_product.price AS productPrice
+ FROM
+ 	t_cart
+ INNER JOIN
+ 	t_product
+ ON
+ 	t_cart.product_id=t_product.id
+ WHERE
+ t_cart.uid=#{uid};
+</select>
+
+<!--  -->
+<!-- Cart findCartById(Integer id); -->
+<select id="findCartById"  resultType="cn.tedu.store.entity.Cart">
+	SELECT
+		product_num AS productNum
+	FROM
+		t_cart
+	WHERE
+		id=#{id}
+</select>
+
+
+
+</mapper>
+
+
+
+
+
+
+

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>我的订单 - 达内学子商城</title>
+<link href="../css/orders.css" rel="stylesheet" />
+<link href="../css/header.css" rel="stylesheet" />
+<link href="../css/footer.css" rel="stylesheet" />
+<link href="../css/personage.css" rel="stylesheet" />
+<link href="../css/icon/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css">
+<script src="../jquery/jquery.min.js"></script>
+<script src="../js/icon/bootstrap.min.js"></script>
+</head>
+<body>
+	<!-- 页面顶部-->
+	<header id="top" class="fixed_nav">
+		<div id="logo" class="lf">
+			<img class="animated jello" src="../images/header/logo.png"
+				alt="logo" />
+		</div>
+		<div id="top_input" class="lf">
+			<input id="input" type="text" placeholder="请输入您要搜索的内容" /> <a
+				href="search.html" class="rt"><img id="search"
+				src="../images/header/search.png" alt="搜索" /></a>
+		</div>
+		<div class="rt">
+			<ul class="lf">
+				<li><a href="favorites.html" title="我的收藏"><img class="care"
+						src="../images/header/care.png" alt="" /></a><b>|</b></li>
+				<li><a href="orders.html" title="我的订单"><img class="order"
+						src="../images/header/order.png" alt="" /></a><b>|</b></li>
+				<li><a href="cart.html" title="我的购物车"><img class="shopcar"
+						src="../images/header/shop_car.png" alt="" /></a><b>|</b></li>
+				<li><a href="help.html">帮助</a><b>|</b></li>
+				<li><a href="login.html">登录</a></li>
+			</ul>
+		</div>
+	</header>
+	<!-- nav主导航-->
+	<nav id="nav">
+		<ul>
+			<li><a href="index.html" class="acti">首页</a></li>
+			<li><a href="index.html#computer">电脑办公</a></li>
+			<li><a href="index.html#stationery">办公文具</a></li>
+		</ul>
+	</nav>
+	<!-- 我的订单导航栏-->
+	<div id="nav_order">
+		<ul>
+			<li><a href="">首页<span>&gt;</span>个人中心
+			</a></li>
+		</ul>
+	</div>
+	<!--我的订单内容区域 #container-->
+	<div id="container" class="clearfix">
+		<!-- 左边栏-->
+		<div id="leftsidebar_box" class="lf">
+			<div class="line"></div>
+			<dl class="my_order">
+				<dt>
+					我的订单 <img src="../images/myOrder/myOrder2.png">
+				</dt>
+				<dd class="first_dd">
+					<a href="orders.html">全部订单</a>
+				</dd>
+				<dd>
+					<a href="#"> 待付款 <span> <!--待付款数量-->
+					</span>
+					</a>
+				</dd>
+				<dd>
+					<a href="#"> 待收货 <span> <!--待收货数量-->1
+					</span>
+					</a>
+				</dd>
+				<dd>
+					<a href="#"> 待评价<span> <!--待评价数量-->
+					</span>
+					</a>
+				</dd>
+				<dd>
+					<a href="#">退货退款</a>
+				</dd>
+			</dl>
+
+			<dl class="footMark">
+				<dt>
+					我的优惠卷<img src="../images/myOrder/myOrder1.png">
+				</dt>
+			</dl>
+			<dl class="address">
+				<dt>
+					收货地址<img src="../images/myOrder/myOrder1.png">
+				</dt>
+				<dd>
+					<a href="address.html">地址管理</a>
+				</dd>
+			</dl>
+			<dl class="count_managment">
+				<dt>
+					帐号管理<img src="../images/myOrder/myOrder1.png">
+				</dt>
+				<dd class="first_dd">
+					<a href="personage.html">我的信息</a>
+				</dd>
+				<dd>
+					<a href="avatar.html">上传头像</a>
+				</dd>
+				<dd>
+					<a href="personal_password.html">安全管理</a>
+				</dd>
+			</dl>
+		</div>
+		<!-- 右边栏-->
+		<div class="rightsidebar_box rt">
+			<!--标题栏-->
+			<div class="rs_header">
+				<span class="address_title">收获地址管理</span>
+			</div>
+			<!--收货人信息填写栏-->
+			<div class="rs_content">
+				<!--新增收货地址表单开始-->
+				<form id="address-form" class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-md-2 "><span class="red">*</span>收货人：</label>
+						<div class="col-md-8">
+							<input name="recvName" type="text" class="form-control"
+								placeholder="请输入收货人姓名">
+						</div>
+					</div>
+					<div class="address_content" data-toggle="distpicker">
+						<div class="form-group">
+							<label class="col-md-2 control-label"><span
+								class="txtred">*</span>省/直辖市：</label>
+							<div class="col-md-3">
+								<select name="recvProvince" class="form-control"
+									data-province="---- 选择省 ----" id="recvProvince">
+									<option value="0">---请选择省---</option></select>
+							</div>
+							<label class="col-md-2 control-label"><span
+								class="txtred">*</span>城市：</label>
+							<div class="col-md-3">
+								<select name="recvCity" class="form-control"
+									data-city="---- 选择市 ----" id="recvCity">
+									<option value="0">---请选择市---</option></select>
+							</div>
+						</div>
+						<div class="form-group ">
+							<label class="col-md-2 control-label"><span
+								class="txtred">*</span>区县：</label>
+							<div class="col-md-3">
+								<select name="recvArea" class="form-control"
+									data-district="---- 选择区 ----" id="recvArea">
+									<option value="0">---请选择区---</option></select>
+							</div>
+							<label class="col-md-2 control-label">邮政编码：</label>
+							<div class="col-md-3">
+								<input name="recvZip" type="text" class="form-control"
+									placeholder="请输入邮政编码">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 control-label"><span class="txtred">*</span>详细地址：</label>
+						<div class="col-md-8">
+							<textarea name="recvAddress" class="form-control" rows="3"
+								placeholder="输入详细的收货地址，小区名称、门牌号等"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 control-label"><span class="txtred">*</span>手机：</label>
+						<div class="col-md-3">
+							<input name="recvPhone" type="text" class="form-control"
+								placeholder="请输入手机号码">
+						</div>
+						<label class="col-md-2 control-label">固话：</label>
+						<div class="col-md-3">
+							<input name="recvTel" type="text" class="form-control"
+								placeholder="请输入固定电话号码">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 control-label">地址类型：</label>
+						<div class="col-md-8">
+							<input name="recvTag" type="text" class="form-control"
+								placeholder="请输入地址类型，如：家、公司或者学校">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 control-label"><a
+							href="address.html">返回</a>&nbsp;&nbsp;&nbsp;</label>
+						<div class="col-sm-10">
+							<input id="btn-submit" type="button"
+								class="col-md-1 btn btn-primary" value="保存" /> <input
+								type="reset" class="col-md-offset-1 col-md-1 btn btn-primary"
+								value="重置" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- 品质保障，私人定制等-->
+	<div id="foot_box">
+		<div class="icon1 lf">
+			<img src="../images/footer/icon1.png" alt="" />
+
+			<h3>品质保障</h3>
+		</div>
+		<div class="icon2 lf">
+			<img src="../images/footer/icon2.png" alt="" />
+
+			<h3>私人定制</h3>
+		</div>
+		<div class="icon3 lf">
+			<img src="../images/footer/icon3.png" alt="" />
+
+			<h3>学员特供</h3>
+		</div>
+		<div class="icon4 lf">
+			<img src="../images/footer/icon4.png" alt="" />
+
+			<h3>专属特权</h3>
+		</div>
+	</div>
+	<!-- 页面底部-->
+	<div class="foot_bj">
+		<div id="foot">
+			<div class="lf">
+				<p class="footer1">
+					<img src="../images/footer/logo.png" alt="" class=" footLogo" />
+				</p>
+				<p class="footer2">
+					<img src="../images/footer/footerFont.png" alt="" />
+				</p>
+			</div>
+			<div class="foot_left lf">
+				<ul>
+					<li><a href="#"><h3>买家帮助</h3></a></li>
+					<li><a href="#">新手指南</a></li>
+					<li><a href="#">服务保障</a></li>
+					<li><a href="#">常见问题</a></li>
+				</ul>
+				<ul>
+					<li><a href="#"><h3>商家帮助</h3></a></li>
+					<li><a href="#">商家入驻</a></li>
+					<li><a href="#">商家后台</a></li>
+				</ul>
+				<ul>
+					<li><a href="#"><h3>关于我们</h3></a></li>
+					<li><a href="#">关于达内</a></li>
+					<li><a href="#">联系我们</a></li>
+					<li><img src="../images/footer/wechat.png" alt="" /> <img
+						src="../images/footer/sinablog.png" alt="" /></li>
+				</ul>
+			</div>
+			<div class="service">
+				<p>学子商城客户端</p>
+				<img src="../images/footer/ios.png" class="lf"> <img
+					src="../images/footer/android.png" alt="" class="lf" />
+			</div>
+			<div class="download">
+				<img src="../images/footer/erweima.png">
+			</div>
+			<!-- 页面底部-备案号 #footer -->
+			<div class="record">&copy;2017 达内集团有限公司 版权所有 京ICP证xxxxxxxxxxx</div>
+		</div>
+	</div>
+</body>
+<script src="../js/jquery.page.js"></script>
+<script type="text/javascript" src="../js/orders.js"></script>
+<!--  <script type="text/javascript" src="../js/distpicker.data.js"></script>
+<script type="text/javascript" src="../js/distpicker.js"></script>-->
+<script type="text/javascript">
+function showProvinceList(){
+		showDistrictList(
+				$("#recvProvince"),
+				"---请选择省---",
+				"86"
+				);
+	}
+function showCityList(){
+	showDistrictList(
+			$("#recvCity"),
+			"---请选择市---",
+			$("#recvProvince").val()
+			);
+}
+function showAreaList(){
+	showDistrictList(
+			$("#recvArea"),
+			"---请选择区---",
+			$("#recvCity").val()
+			);
+}
+function showDistrictList(menu,defaultText,parentCode){
+	//清空当前下拉列表
+	menu.empty();
+	//准备加载新的列表
+	console.log("加载区县列表...");
+	 var op='<option value="0">'+defaultText+'</option>';
+	 menu.append(op);
+	 
+	var url="../district/list.do";
+	var data="parent="+parentCode;
+	console.log("data="+data);
+	$.ajax({
+		 "url":url,
+         "data":data,
+         "type":"GET",
+         "dataType":"json",
+         "success":function(json) {
+        	 var list=json.data;
+        	 for(var i=0;i<list.length;i++){
+        		 console.log("code="+list[i].code+", name="+list[i].name);
+        		 var op='<option value="'+list[i].code+'">'+list[i].name+'</option>';
+        		 menu.append(op);
+        		 
+        	 }
+		}
+	});
+}
+$("document").ready(function(){
+	//加载省列表
+	showProvinceList();
+})
+//当省列表的选中选项改变时
+$("#recvProvince").change(function(){
+	$("#recvCity").empty();
+	 var op='<option value="0">---请选择市---</option>';
+	 $("#recvCity").append(op);
+	
+		
+		$("#recvArea").empty();
+		 var op='<option value="0">---请选择区---</option>';
+		 $("#recvArea").append(op);
+		 if($("#recvProvince").val()==0){
+			 return;
+		 }
+	showCityList();
+
+	
+})
+//当市列表的选中选项改变时
+$("#recvCity").change(function(){
+	$("#recvArea").empty();
+	 var op='<option value="0">---请选择区---</option>';
+	 $("#recvArea").append(op);
+	 
+	 if( $("#recvCity").val()!=0){
+	showAreaList();
+	 }
+})
+//点击提交按钮时
+	$("#btn-submit").click(function(){
+		var url="../address/addnew.do";
+		var data=$("#address-form").serialize();
+		console.log("data="+data);
+		$.ajax({
+			 "url":url,
+             "data":data,
+             "type":"POST",
+             "dataType":"json",
+             "success":function(json) {
+            	 if(json.state==200){
+            		 alert("增加收货地址成功！");
+            		 //重置表单
+            	 }else{
+            		 alert("增加收货地址失败！"+json.message);
+            	 }
+             },
+             "error":function(xhr){
+            	 console.log("响应码："+xhr.status);
+         		alert("您的登录信息已过期，请重新登录！");
+         		location.href	="login.html";
+             }
+		});
+	});
+</script>
+</html>
