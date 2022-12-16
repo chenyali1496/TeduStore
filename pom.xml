@@ -39,7 +39,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>3.2.8.RELEASE</version>
+			<version>5.2.20.RELEASE</version>
 		</dependency>
 		<!-- Spring JDBC -->
 		<!-- 注意：需要使用与spring-webmvc相同的版本 -->
